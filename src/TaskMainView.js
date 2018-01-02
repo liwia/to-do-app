@@ -47,7 +47,8 @@ class TaskMainView extends Component {
                 <TaskForm
                     addTask={this.addTask}/>
                 <TaskList
-                    tasks={this.state.tasks}/>
+                    tasks={this.state.tasks}
+                    deleteTasks={this.deleteTasks}/>
             </div>
 
         );
