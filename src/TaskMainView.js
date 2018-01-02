@@ -32,14 +32,6 @@ class TaskMainView extends Component {
     componentDidUpdate(){
         localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
     }
-
-    deleteTasks = (taskIds) => {
-        this.setState({
-            tasks: this.state.tasks.filter(
-                task => !taskIds.includes(task.id)
-            )
-        })
-    };
     handleDeleteClick = event => {
         console.log(event.target.dataset.taskId);
         this.setState({
@@ -56,7 +48,6 @@ class TaskMainView extends Component {
                     addTask={this.addTask}/>
                 <TaskList
                     tasks={this.state.tasks}
-                    deleteTasks={this.deleteTasks}
                     handleDeleteClick={this.handleDeleteClick}/>
             </div>
 
