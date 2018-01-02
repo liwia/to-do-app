@@ -9,8 +9,10 @@ class TaskMainView extends Component {
     render() {
         return (
             <div>
-
+                <TaskForm />
+                <TaskList/>
             </div>
+
         );
     }
 }
