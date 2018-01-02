@@ -40,6 +40,14 @@ class TaskMainView extends Component {
             )
         })
     };
+    handleDeleteClick = event => {
+        console.log(event.target.dataset.taskId);
+        this.setState({
+            tasks: this.state.tasks.filter(
+                task => task.id !== parseInt(event.target.dataset.taskId, 10)
+            )
+        })
+    };
 
     render() {
         return (
@@ -48,7 +56,8 @@ class TaskMainView extends Component {
                     addTask={this.addTask}/>
                 <TaskList
                     tasks={this.state.tasks}
-                    deleteTasks={this.deleteTasks}/>
+                    deleteTasks={this.deleteTasks}
+                    handleDeleteClick={this.handleDeleteClick}/>
             </div>
 
         );
