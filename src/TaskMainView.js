@@ -32,6 +32,15 @@ class TaskMainView extends Component {
     componentDidUpdate(){
         localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
     }
+
+    deleteTasks = (taskIds) => {
+        this.setState({
+            tasks: this.state.tasks.filter(
+                task => !taskIds.includes(task.id)
+            )
+        })
+    };
+
     render() {
         return (
             <div>
