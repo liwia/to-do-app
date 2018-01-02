@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import TaskMainView from './TaskMainView';
+import SearchBar from './SearchBar';
 
 class App extends Component {
   render() {
@@ -12,6 +13,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, add your tasks!
         </p>
+          <SearchBar
+              // onSearch={this.onSearch}
+          />
         <TaskMainView/>
       </div>
     );
