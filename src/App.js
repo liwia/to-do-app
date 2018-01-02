@@ -4,6 +4,15 @@ import TaskMainView from './TaskMainView';
 import SearchBar from './SearchBar';
 
 class App extends Component {
+    state={
+        searchPhrase: ''
+    }
+
+    onSearch = (text) => {
+        this.setState({
+            searchPhrase: text
+        })
+    }
   render() {
     return (
       <div className="App">
@@ -14,9 +23,10 @@ class App extends Component {
           To get started, add your tasks!
         </p>
           <SearchBar
-              // onSearch={this.onSearch}
+              onSearch={this.onSearch}
           />
-        <TaskMainView/>
+        <TaskMainView
+            searchPhrase={this.state.searchPhrase}/>
       </div>
     );
   }
