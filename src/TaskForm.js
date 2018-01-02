@@ -9,9 +9,18 @@ class TaskForm extends Component {
             taskInputValue: event.target.value
         })
     };
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.addTask(
+            this.state.taskInputValue,
+        );
+        this.setState({
+            taskInputValue: ''
+        })
+    };
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input
                     value={this.state.taskInputValue}
                     onChange={this.handleChange}
