@@ -22,6 +22,16 @@ class TaskMainView extends Component {
             })
         });
     };
+    componentWillMount(){
+        console.log('TODO VIEW WILL MOUNT');
+        this.setState({
+            tasks: JSON.parse(localStorage.getItem('tasks') || '[]')
+        })
+    }
+
+    componentDidUpdate(){
+        localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+    }
     render() {
         return (
             <div>
