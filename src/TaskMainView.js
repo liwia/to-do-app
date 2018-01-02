@@ -41,19 +41,24 @@ class TaskMainView extends Component {
         })
     };
 
+    handleSearch = (taskContent) => {
+        if(taskContent.trim() === ''){
+            return;
+        }
+        this.setState({
+            tasks: this.state.tasks.filter( task => task.content.includes (this.props.searchPhrase)
+            )
+        })
+
+    }
+
     render() {
-        // const tasks = this.state.tasks.filter(
-        //     task =>
-        //         task.title.includes(
-        //             this.props.searchPhrase
-        //         )
-        // );
         return (
             <div>
                 <TaskForm
                     addTask={this.addTask}/>
                 <TaskList
-                    // tasks={tasks}
+                    handleSearch={this.handleSearch}
                     tasks={this.state.tasks}
                     handleDeleteClick={this.handleDeleteClick}
                 />
