@@ -10,7 +10,6 @@ class TaskList extends Component {
                             task => (
                                 <li key={task.id}>
                                     {task.content}
-
                                     <button
                                         data-task-id={task.id}
                                         onClick={this.props.handleDeleteClick}
