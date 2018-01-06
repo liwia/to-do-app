@@ -24,6 +24,24 @@ class TaskList extends Component {
         )
     }
 
+    handleRemoveClick = event => {
+        const taskId = event.target.dataset.taskId;
+        const uid = firebase.auth().currentUser.uid;
+        firebase.database().ref('/dump/' + uid + '/' + taskId).remove()
+    };
+
+    handleToggleDoneClick = event => {
+        const taskId = event.target.dataset.taskId;
+        const clickedTask = this.state.tasks.find(task => task.id === taskId);
+        const uid = firebase.auth().currentUser.uid;
+
+        firebase.database().ref('/dump/' + uid + '/' + taskId).set({
+            id: clickedTask.id,
+            title: clickedTask.title,
+            isDone: !clickedTask.isDone
+        })
+    };
+
     render() {
         return (
             <div>
@@ -33,6 +51,27 @@ class TaskList extends Component {
                         this.state.tasks.map(
                             task => (
                                 <li key={task.id}>
+                                    {
+                                        task.isDone ?
+                                            <del>
+                                                {task.title}
+                                            </del> :
+                                            task.title
+                                    }
+
+                                    <button
+                                        data-task-id={task.id}
+                                        onClick={this.handleRemoveClick}
+                                    >
+                                        remove
+                                    </button>
+
+                                    <button
+                                        data-task-id={task.id}
+                                        onClick={this.handleToggleDoneClick}
+                                    >
+                                        toggle done
+                                    </button>
                                 </li>
                             )
                         )
