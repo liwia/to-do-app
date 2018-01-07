@@ -17,6 +17,7 @@ class App extends Component {
     }
   render() {
     return (
+        <Auth>
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to To Do Task List</h1>
@@ -31,6 +32,7 @@ class App extends Component {
             searchPhrase={this.state.searchPhrase}/>
         <ToDoFirebase/>
       </div>
+        </Auth>
     );
   }
 }
