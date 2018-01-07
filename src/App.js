@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TaskMainView from './TaskMainView';
 import SearchBar from './SearchBar';
+import ToDoFirebase from './ToDoFirebase'
 
 class App extends Component {
     state={
@@ -27,6 +28,7 @@ class App extends Component {
           />
         <TaskMainView
             searchPhrase={this.state.searchPhrase}/>
+        <ToDoFirebase/>
       </div>
     );
   }
