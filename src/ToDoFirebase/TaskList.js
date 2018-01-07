@@ -8,9 +8,9 @@ class TaskList extends Component {
     };
 
     componentDidMount() {
-        // const uid = firebase.auth().currentUser.uid;
+        const uid = firebase.auth().currentUser.uid;
         firebase.database().ref('/dump/'
-            // + uid
+            + uid
         ).on(
             'value',
             snapshot => {
