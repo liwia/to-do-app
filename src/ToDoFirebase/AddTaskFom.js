@@ -15,9 +15,9 @@ class AddTaskForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        // const uid = firebase.auth().currentUser.uid;
+        const uid = firebase.auth().currentUser.uid;
         firebase.database().ref('/dump/'
-            // + uid
+            + uid
         ).push({
             title: this.state.task,
         });
