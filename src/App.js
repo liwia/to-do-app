@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import Auth from './Auth';
 import TaskMainView from './TaskMainView';
 import SearchBar from './SearchBar';
-import ToDoFirebase from './ToDoFirebase'
+import ToDoFirebase from './ToDoFirebase';
 
 class App extends Component {
     state={
